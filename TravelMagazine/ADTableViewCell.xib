@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tuo-Wv-Q1E">
-                                <rect key="frame" x="261" y="2" width="25" height="20"/>
+                                <rect key="frame" x="260" y="3" width="25" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVw-WL-vUu">
                                         <rect key="frame" x="4" y="3.0000000000000009" width="17" height="14.333333333333336"/>
@@ -48,11 +48,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Tuo-Wv-Q1E" firstAttribute="top" secondItem="SbY-Z1-ug1" secondAttribute="top" constant="2" id="3Re-nV-Rt1"/>
+                            <constraint firstItem="Tuo-Wv-Q1E" firstAttribute="top" secondItem="SbY-Z1-ug1" secondAttribute="top" constant="3" id="3Re-nV-Rt1"/>
                             <constraint firstAttribute="trailing" secondItem="aoS-eH-hOo" secondAttribute="trailing" constant="44" id="7hU-Y5-KrZ"/>
                             <constraint firstItem="aoS-eH-hOo" firstAttribute="top" secondItem="SbY-Z1-ug1" secondAttribute="top" constant="10" id="HeO-dZ-FRq"/>
                             <constraint firstItem="aoS-eH-hOo" firstAttribute="leading" secondItem="SbY-Z1-ug1" secondAttribute="leading" constant="44" id="YMh-AD-v67"/>
-                            <constraint firstAttribute="trailing" secondItem="Tuo-Wv-Q1E" secondAttribute="trailing" constant="2" id="bRM-wk-xwH"/>
+                            <constraint firstAttribute="trailing" secondItem="Tuo-Wv-Q1E" secondAttribute="trailing" constant="3" id="bRM-wk-xwH"/>
                             <constraint firstAttribute="bottom" secondItem="aoS-eH-hOo" secondAttribute="bottom" constant="10" id="hvE-qE-YvN"/>
                         </constraints>
                     </view>
