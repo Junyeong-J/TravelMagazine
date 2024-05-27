@@ -7,45 +7,42 @@
 
 import UIKit
 
-class RestaurantTableViewController: UITableViewController {
+class RestaurantTableViewController: UITableViewController, UISearchBarDelegate {
     
-    var restaurantList = RestaurantList()
-    var newRestaurantList = [Restaurant]()
-    var price = 0
+    var restaurantList = RestaurantList().restaurantArray
+    var newRestaurantList: [Restaurant] = []
+    
     var selectedCategory = ""
     
-    @IBOutlet var searchTextField: UITextField!
-    @IBOutlet var keywordLabel: [UILabel]!
+    @IBOutlet var foodSearchBar: UISearchBar!
+    @IBOutlet var keywordLabel: UILabel!
     @IBOutlet var categoryButton: [UIButton]!
-    @IBOutlet var priceSlider: UISlider!
-    @IBOutlet var priceLabel: UILabel!
-    @IBOutlet var searchButton: UIButton!
+    @IBOutlet var allButton: UIButton!
     
     let categoryList = ["한식", "카페", "중식", "양식", "분식", "일식", "경양식"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchTextField.placeholder = "식당 이름을 입력해주세요"
-        searchTextField.tintColor = .black
+        foodSearchBar.placeholder = "식당 이름을 입력해주세요"
+        foodSearchBar.tintColor = .black
         
-        labelUI(keywordLabel[0], title: "카테고리")
-        labelUI(keywordLabel[1], title: "가격")
+        foodSearchBar.delegate = self
+        
+        labelUI(keywordLabel, title: "카테고리")
         
         for i in 0...6{
             buttonUI(categoryButton[i], title: categoryList[i], num: i)
         }
         
-        priceSlider.value = 1
-        priceSlider.minimumValue = 0
-        priceSlider.maximumValue = 10000
+        buttonUI(allButton, title: "전체 보기", num: 7)
+        allButton.setTitleColor(.white, for: .normal)
+        allButton.backgroundColor = .black
         
-        searchButton.backgroundColor = .black
-        searchButton.setTitle("검색하기", for: .normal)
-        searchButton.setTitleColor(.white, for: .normal)
-        searchButton.layer.cornerRadius = 10
         
-        newRestaurantList = restaurantList.restaurantArray
+        allButton.addTarget(self, action: #selector(allButtonClicked), for: .touchUpInside)
+        
+        newRestaurantList = restaurantList
     }
     
     func labelUI(_ label: UILabel, title: String){
@@ -65,12 +62,20 @@ class RestaurantTableViewController: UITableViewController {
         button.tag = num
     }
     
-    
-    @IBAction func sliderValueChanged(_ sender: UISlider) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        let value = sender.value
-        priceLabel.text = String(Int(value))
-        price = Int(value)
+        var searchList: [Restaurant] = []
+        
+        for item in restaurantList {
+            
+            if item.name.contains(searchBar.text!) || item.category.contains(searchBar.text!) {
+                searchList.append(item)
+            }
+        }
+        
+        newRestaurantList = searchList
+        tableView.reloadData()
+        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -84,38 +89,7 @@ class RestaurantTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantTableViewCell", for: indexPath) as! RestaurantTableViewCell
         
-        let data = newRestaurantList[indexPath.row]
-        
-        let url = URL(string: data.image)
-        cell.photoImageView.kf.setImage(with: url)
-        cell.photoImageView.contentMode = .scaleAspectFill
-        cell.photoImageView.layer.cornerRadius = 15
-        
-        
-        cell.title.text = data.name
-        cell.title.font = .boldSystemFont(ofSize: 15)
-        cell.title.textColor = .darkGray
-        cell.title.numberOfLines = 2
-        
-        cell.address.text = "주소: \(data.address)"
-        cell.address.font = .systemFont(ofSize: 13)
-        cell.address.textColor = .lightGray
-        cell.address.numberOfLines = 2
-        
-        cell.phoneNumber.text = "전화번호: \(data.phoneNumber)"
-        cell.phoneNumber.font = .systemFont(ofSize: 13)
-        cell.phoneNumber.textColor = .lightGray
-        cell.phoneNumber.numberOfLines = 0
-        
-        cell.priceLabel.text = "가격: \(String(data.price))"
-        cell.priceLabel.font = .systemFont(ofSize: 15)
-        cell.priceLabel.textColor = .red
-        
-        let storeName = data.like ? "heart.fill" : "heart"
-        let storeImage = UIImage(systemName: storeName)
-        cell.likeButton.setImage(storeImage, for: .normal)
-        cell.likeButton.tintColor = .red
-        cell.likeButton.tag = indexPath.row
+        cell.configureCell(data: newRestaurantList[indexPath.row], indexPath: indexPath)
         cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
         
         return cell
@@ -129,47 +103,33 @@ class RestaurantTableViewController: UITableViewController {
         
     }
     
-    @IBAction func searchButton(_ sender: UIButton) {
+    @IBAction func categoryButtonClicked(_ sender: UIButton) {
         
-        guard let searchText = searchTextField.text?.lowercased() else {
-            newRestaurantList = restaurantList.restaurantArray
-            tableView.reloadData()
-            return
+        for i in 0...6{
+            buttonUI(categoryButton[i], title: categoryList[i], num: i)
         }
+        buttonUI(allButton, title: "전체 보기", num: 7)
         
-        if searchText.count == 0 {
-            if selectedCategory == ""{
-                newRestaurantList = restaurantList.restaurantArray.filter { $0.price <= price }
-            }else{
-                newRestaurantList = restaurantList.restaurantArray.filter { $0.category == selectedCategory }
-                
-                newRestaurantList = newRestaurantList.filter { $0.price <= price }
-            }
-        } else {
+        sender.backgroundColor = .black
+        sender.setTitleColor(.white, for: .normal)
+        
+        var food: [Restaurant] = []
+        
+        for item in restaurantList {
             
-            if selectedCategory == ""{
-                
-                newRestaurantList = restaurantList.restaurantArray.filter { $0.name.lowercased().contains(searchText) }
-                
-                newRestaurantList = newRestaurantList.filter { $0.price <= price }
-                
-            } else {
-                newRestaurantList = restaurantList.restaurantArray.filter { $0.name.lowercased().contains(searchText) }
-                
-                newRestaurantList = newRestaurantList.filter { $0.category == selectedCategory }
-                
-                newRestaurantList = newRestaurantList.filter { $0.price <= price }
+            if item.category == categoryList[sender.tag]{
+                food.append(item)
             }
             
         }
         
+        newRestaurantList = food
         
         tableView.reloadData()
         
-        
     }
     
-    @IBAction func categoryButtonClicked(_ sender: UIButton) {
+    @objc func allButtonClicked(sender: UIButton) {
         
         for i in 0...6{
             buttonUI(categoryButton[i], title: categoryList[i], num: i)
@@ -178,10 +138,8 @@ class RestaurantTableViewController: UITableViewController {
         sender.backgroundColor = .black
         sender.setTitleColor(.white, for: .normal)
         
-        selectedCategory = categoryList[sender.tag]
+        newRestaurantList = restaurantList
+        tableView.reloadData()
         
     }
-    
-    
-    
 }
