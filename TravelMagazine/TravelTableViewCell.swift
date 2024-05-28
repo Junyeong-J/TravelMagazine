@@ -14,4 +14,6 @@ class TravelTableViewCell: UITableViewCell {
     @IBOutlet var subTitle: UILabel!
     @IBOutlet var date: UILabel!
     
+    
+    
 }

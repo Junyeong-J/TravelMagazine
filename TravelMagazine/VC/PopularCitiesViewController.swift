@@ -9,14 +9,14 @@ import UIKit
 
 class PopularCitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var list = TravelInfo().travel
+    var list = TravelInfo.travel
     
     @IBOutlet var cityTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "도시 상세 정보"
+        self.configureView("도시 상세 정보")
         
         cityTableView.delegate = self
         cityTableView.dataSource = self
@@ -29,7 +29,7 @@ class PopularCitiesViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if !list[indexPath.row].ad!{
+        if !list[indexPath.row].ad{
             return 120
         } else {
             return 100
@@ -44,7 +44,7 @@ class PopularCitiesViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        if !list[indexPath.row].ad! {
+        if !list[indexPath.row].ad {
             let cityCell = tableView.dequeueReusableCell(withIdentifier: "CitiesTableViewCell", for: indexPath) as! CitiesTableViewCell
             cityCell.configureCell(data: list[indexPath.row])
             

@@ -17,7 +17,7 @@ class TravelMagazineTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MagazineInfo().magazine.count
+        return MagazineInfo.magazine.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -26,7 +26,7 @@ class TravelMagazineTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TravelTableViewCell", for: indexPath) as! TravelTableViewCell
-        let data = MagazineInfo().magazine[indexPath.row]
+        let data = MagazineInfo.magazine[indexPath.row]
         
         let url = URL(string: data.photo_image)
         cell.photoImageView.kf.setImage(with: url)

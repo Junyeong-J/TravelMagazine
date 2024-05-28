@@ -4,22 +4,41 @@
 //  Created by Den on 2024/05/11.
 //
 
-import Foundation
+import UIKit
+import Kingfisher
 
 struct Travel {
     
-    let title: String?
+    let title: String
     let description: String?
     let travel_image: String?
     let grade: Double?
     let save: Int?
     let like: Bool?
-    let ad: Bool?
+    let ad: Bool
+    
+    var savedDescription: String {
+        if let save {
+            return "| 저장: \(save.formatted())"
+        }else {
+            return "평점: 0 | 저장: 0"
+        }
+    }
+    
+    var starScore: Double {
+        
+        if let grade {
+            return grade
+        } else {
+            return 0
+        }
+        
+    }
     
 }
 
 struct TravelInfo {
-    let travel: [Travel] = [
+    static let travel: [Travel] = [
         Travel(title: "하나우마 베이",
                description: "아름다운 자연을 감상할 수 있는 스노쿨링 명소",
                travel_image: "https://images.unsplash.com/photo-1539498508910-091b5e859b1d?q=80&w=3250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",

@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -49,30 +50,60 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afx-f4-aiI">
-                        <rect key="frame" x="16.000000000000014" y="55" width="243.33333333333337" height="22"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="22" id="Kbv-zG-z0Z"/>
-                        </constraints>
+                        <rect key="frame" x="89.000000000000014" y="56.000000000000007" width="170.33333333333337" height="20.333333333333336"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="zym-fC-51U" customClass="CosmosView" customModule="Cosmos">
+                        <rect key="frame" x="16" y="58" width="70" height="10"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="4nY-MX-Tq6"/>
+                            <constraint firstAttribute="width" constant="70" id="x3V-GI-2BB"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                <color key="value" systemColor="systemOrangeColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                <color key="value" systemColor="systemOrangeColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                <color key="value" systemColor="systemOrangeColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="0Ng-qG-heE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="1gW-7z-VDa"/>
-                    <constraint firstItem="wqG-vU-0CJ" firstAttribute="leading" secondItem="afx-f4-aiI" secondAttribute="trailing" constant="8" id="GDI-YR-7iZ"/>
+                    <constraint firstItem="zym-fC-51U" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="3Jh-ea-gh7"/>
                     <constraint firstAttribute="trailing" secondItem="wqG-vU-0CJ" secondAttribute="trailing" constant="16" id="J9v-Fh-EkF"/>
                     <constraint firstItem="b3g-FO-yhi" firstAttribute="top" secondItem="0Ng-qG-heE" secondAttribute="bottom" constant="2" id="JoK-kj-2FI"/>
+                    <constraint firstItem="afx-f4-aiI" firstAttribute="top" secondItem="b3g-FO-yhi" secondAttribute="bottom" constant="3" id="OfX-kt-2zL"/>
+                    <constraint firstItem="zym-fC-51U" firstAttribute="top" secondItem="b3g-FO-yhi" secondAttribute="bottom" constant="5" id="QlG-Hg-bd4"/>
                     <constraint firstItem="wqG-vU-0CJ" firstAttribute="leading" secondItem="0Ng-qG-heE" secondAttribute="trailing" constant="8" id="SUJ-lt-dXI"/>
                     <constraint firstItem="b3g-FO-yhi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="St8-0R-LIA"/>
-                    <constraint firstItem="afx-f4-aiI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="VzJ-Ja-dAO"/>
+                    <constraint firstItem="afx-f4-aiI" firstAttribute="leading" secondItem="zym-fC-51U" secondAttribute="trailing" constant="3" id="ZMw-Ez-e1p"/>
                     <constraint firstItem="30c-AU-OVN" firstAttribute="trailing" secondItem="wqG-vU-0CJ" secondAttribute="trailing" id="cKO-bB-07F"/>
                     <constraint firstItem="wqG-vU-0CJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="cT6-CZ-2Hj"/>
                     <constraint firstItem="0Ng-qG-heE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="fGc-1i-Fl6"/>
                     <constraint firstItem="wqG-vU-0CJ" firstAttribute="leading" secondItem="b3g-FO-yhi" secondAttribute="trailing" constant="8" id="jC0-9L-eWo"/>
                     <constraint firstItem="30c-AU-OVN" firstAttribute="top" secondItem="wqG-vU-0CJ" secondAttribute="top" id="jjh-JG-eof"/>
-                    <constraint firstItem="afx-f4-aiI" firstAttribute="top" secondItem="b3g-FO-yhi" secondAttribute="bottom" constant="2" id="v0Z-YS-hnX"/>
                     <constraint firstAttribute="bottom" secondItem="wqG-vU-0CJ" secondAttribute="bottom" constant="8" id="wbX-o1-Ab2"/>
+                    <constraint firstItem="wqG-vU-0CJ" firstAttribute="leading" secondItem="afx-f4-aiI" secondAttribute="trailing" constant="8" id="yjv-sk-IVv"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -80,6 +111,7 @@
                 <outlet property="cityImageView" destination="wqG-vU-0CJ" id="uy4-Mj-XUH"/>
                 <outlet property="gradeLabel" destination="afx-f4-aiI" id="fdP-sy-R1l"/>
                 <outlet property="likeButton" destination="30c-AU-OVN" id="X9Q-ms-eha"/>
+                <outlet property="starScoreView" destination="zym-fC-51U" id="GiE-d4-bTl"/>
                 <outlet property="subTitleLabel" destination="b3g-FO-yhi" id="gfF-zg-4zT"/>
                 <outlet property="titleLabel" destination="0Ng-qG-heE" id="DHX-PY-4Hs"/>
             </connections>
@@ -88,5 +120,11 @@
     </objects>
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

@@ -9,7 +9,7 @@ import UIKit
 
 class RestaurantTableViewController: UITableViewController, UISearchBarDelegate {
     
-    var restaurantList = RestaurantList().restaurantArray
+    var restaurantList = RestaurantList.restaurantArray
     var newRestaurantList: [Restaurant] = []
     
     var selectedCategory = ""
@@ -26,7 +26,6 @@ class RestaurantTableViewController: UITableViewController, UISearchBarDelegate 
         
         foodSearchBar.placeholder = "식당 이름을 입력해주세요"
         foodSearchBar.tintColor = .black
-        
         foodSearchBar.delegate = self
         
         labelUI(keywordLabel, title: "카테고리")

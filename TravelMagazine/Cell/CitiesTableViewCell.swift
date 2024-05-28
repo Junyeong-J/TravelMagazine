@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import Cosmos
 
 class CitiesTableViewCell: UITableViewCell {
     
@@ -15,6 +16,7 @@ class CitiesTableViewCell: UITableViewCell {
     @IBOutlet var cityImageView: UIImageView!
     @IBOutlet var likeButton: UIButton!
     @IBOutlet var gradeLabel: UILabel!
+    @IBOutlet var starScoreView: CosmosView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,36 +25,30 @@ class CitiesTableViewCell: UITableViewCell {
     }
     
     func configureLayout() {
-        titleLabel.font = .boldSystemFont(ofSize: 17)
-        titleLabel.textColor = .darkGray
         
-        subTitleLabel.font = .systemFont(ofSize: 13)
-        subTitleLabel.textColor = .gray
-        subTitleLabel.numberOfLines = 0
+        titleLabel.setPrimaryLabel(textColor: .darkGray, font: .boldSystemFont(ofSize: 17), textAlignment: .left, numberOfLines: 0)
+        subTitleLabel.setPrimaryLabel(textColor: .gray, font: .systemFont(ofSize: 13), textAlignment: .left, numberOfLines: 0)
+        gradeLabel.setPrimaryLabel(textColor: .lightGray, font: .systemFont(ofSize: 12), textAlignment: .left, numberOfLines: 0)
         
         cityImageView.layer.cornerRadius = 10
-        
-        gradeLabel.font = .systemFont(ofSize: 12)
-        gradeLabel.textColor = .lightGray
+        cityImageView.contentMode = .scaleAspectFill
     }
     
     func configureCell(data: Travel) {
         
         titleLabel.text = data.title
         subTitleLabel.text = data.description
+        
         if let image = data.travel_image {
             let url = URL(string: image)
             cityImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "star"))
-            cityImageView.contentMode = .scaleAspectFill
         }else {
             cityImageView.backgroundColor = .gray
         }
         
-        if let grade = data.grade, let save = data.save?.formatted(){
-            gradeLabel.text = "평점: \(grade) | 저장: \(save)"
-        } else {
-            gradeLabel.text = "평점: 0 | 저장: 0"
-        }
+        starScoreView.rating = data.starScore
+        
+        gradeLabel.text = data.savedDescription
         
         if let like = data.like{
             let buttonImage = like ? "heart.fill" : "heart"
