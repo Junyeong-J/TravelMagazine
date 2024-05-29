@@ -10,6 +10,8 @@ import Kingfisher
 
 class TravelsTableViewCell: UITableViewCell {
 
+    static let identifier = "TravelsTableViewCell"
+    
     @IBOutlet var travelImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subTitleLabel: UILabel!
@@ -22,13 +24,9 @@ class TravelsTableViewCell: UITableViewCell {
     
     func configureUI() {
         
-        travelImageView.contentMode = .scaleAspectFill
-        travelImageView.layer.cornerRadius = 15
-        
+        travelImageView.imageViewUI(contentMode: .scaleAspectFill, cornerRadius: 15)
         titleLabel.setPrimaryLabel(textColor: .darkGray, font: .boldSystemFont(ofSize: 22), textAlignment: .left, numberOfLines: 2)
-        
         subTitleLabel.setPrimaryLabel(textColor: .lightGray, font: .boldSystemFont(ofSize: 15), textAlignment: .left, numberOfLines: 0)
-        
         dateLabel.setPrimaryLabel(textColor: .lightGray, font: .systemFont(ofSize: 13), textAlignment: .left, numberOfLines: 0)
         
     }

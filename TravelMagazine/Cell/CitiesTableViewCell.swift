@@ -11,6 +11,8 @@ import Cosmos
 
 class CitiesTableViewCell: UITableViewCell {
     
+    static let identifier = "CitiesTableViewCell"
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subTitleLabel: UILabel!
     @IBOutlet var cityImageView: UIImageView!
@@ -30,8 +32,7 @@ class CitiesTableViewCell: UITableViewCell {
         subTitleLabel.setPrimaryLabel(textColor: .gray, font: .systemFont(ofSize: 13), textAlignment: .left, numberOfLines: 0)
         gradeLabel.setPrimaryLabel(textColor: .lightGray, font: .systemFont(ofSize: 12), textAlignment: .left, numberOfLines: 0)
         
-        cityImageView.layer.cornerRadius = 10
-        cityImageView.contentMode = .scaleAspectFill
+        cityImageView.imageViewUI(contentMode: .scaleAspectFill, cornerRadius: 10)
     }
     
     func configureCell(data: Travel) {
@@ -47,7 +48,6 @@ class CitiesTableViewCell: UITableViewCell {
         }
         
         starScoreView.rating = data.starScore
-        
         gradeLabel.text = data.savedDescription
         
         if let like = data.like{

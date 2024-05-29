@@ -9,6 +9,8 @@ import UIKit
 
 class ADTableViewCell: UITableViewCell {
     
+    static let identifier = "ADTableViewCell"
+    
     @IBOutlet var adView: UIView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var infoView: UIView!
@@ -21,13 +23,10 @@ class ADTableViewCell: UITableViewCell {
     
     func configureUI() {
         
-        adView.layer.cornerRadius = 10
-        adView.backgroundColor = .RandomColor(UIColor())()
-        
+        adView.setViewUI(backgroundColor: .RandomColor(UIColor())(), cornerRadius: 10)
+        infoView.setViewUI(backgroundColor: .white, cornerRadius: 5)
         titleLabel.setPrimaryLabel(textColor: .black, font: .boldSystemFont(ofSize: 15), textAlignment: .center, numberOfLines: 0)
         
-        infoView.backgroundColor = .white
-        infoView.layer.cornerRadius = 5
     }
     
     func configureCell(data: Travel) {
