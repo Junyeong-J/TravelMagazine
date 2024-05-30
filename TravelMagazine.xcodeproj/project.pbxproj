@@ -33,6 +33,8 @@
 		720A24B32C071E5C00DB0BB7 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A24B12C071E5C00DB0BB7 /* CityTableViewCell.swift */; };
 		720A24B42C071E5C00DB0BB7 /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 720A24B22C071E5C00DB0BB7 /* CityTableViewCell.xib */; };
 		720A24B62C07205E00DB0BB7 /* CityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A24B52C07205E00DB0BB7 /* CityInfo.swift */; };
+		720A24C22C08727D00DB0BB7 /* RestaurantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A24C02C08727D00DB0BB7 /* RestaurantsTableViewCell.swift */; };
+		720A24C32C08727D00DB0BB7 /* RestaurantsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 720A24C12C08727D00DB0BB7 /* RestaurantsTableViewCell.xib */; };
 		724A26882C03047A00A79F1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A26872C03047A00A79F1B /* AppDelegate.swift */; };
 		724A268A2C03047A00A79F1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A26892C03047A00A79F1B /* SceneDelegate.swift */; };
 		724A268F2C03047A00A79F1B /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 724A268E2C03047A00A79F1B /* Base */; };
@@ -73,6 +75,8 @@
 		720A24B12C071E5C00DB0BB7 /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		720A24B22C071E5C00DB0BB7 /* CityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityTableViewCell.xib; sourceTree = "<group>"; };
 		720A24B52C07205E00DB0BB7 /* CityInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityInfo.swift; sourceTree = "<group>"; };
+		720A24C02C08727D00DB0BB7 /* RestaurantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsTableViewCell.swift; sourceTree = "<group>"; };
+		720A24C12C08727D00DB0BB7 /* RestaurantsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantsTableViewCell.xib; sourceTree = "<group>"; };
 		724A26842C03047A00A79F1B /* TravelMagazine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMagazine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		724A26872C03047A00A79F1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		724A26892C03047A00A79F1B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 				724A269F2C0309BF00A79F1B /* TravelTableViewCell.swift */,
 				720A24B22C071E5C00DB0BB7 /* CityTableViewCell.xib */,
 				720A24B12C071E5C00DB0BB7 /* CityTableViewCell.swift */,
+				720A24C02C08727D00DB0BB7 /* RestaurantsTableViewCell.swift */,
+				720A24C12C08727D00DB0BB7 /* RestaurantsTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 				720A24412C04B63800DB0BB7 /* CitiesTableViewCell.xib in Resources */,
 				724A26942C03047B00A79F1B /* Base in Resources */,
 				720A24A52C0703F400DB0BB7 /* Advertisement.storyboard in Resources */,
+				720A24C32C08727D00DB0BB7 /* RestaurantsTableViewCell.xib in Resources */,
 				720A24972C062A3900DB0BB7 /* TravelsTableViewCell.xib in Resources */,
 				724A268F2C03047A00A79F1B /* Base in Resources */,
 				720A24B42C071E5C00DB0BB7 /* CityTableViewCell.xib in Resources */,
@@ -313,6 +320,7 @@
 				720A24A92C07118D00DB0BB7 /* UIView+Extension.swift in Sources */,
 				720A24B62C07205E00DB0BB7 /* CityInfo.swift in Sources */,
 				724A268A2C03047A00A79F1B /* SceneDelegate.swift in Sources */,
+				720A24C22C08727D00DB0BB7 /* RestaurantsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

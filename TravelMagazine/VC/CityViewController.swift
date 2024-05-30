@@ -119,8 +119,7 @@ extension CityViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        var searchList: [City] = []
-        
+
         if searchText.isEmpty {
             newList = cityList
             cityTableView.reloadData()

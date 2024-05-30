@@ -26,6 +26,8 @@ class PopularCitiesViewController: UIViewController {
     
 }
 
+// intrinsic content size - uilabel
+
 //MARK: - UI설정
 extension PopularCitiesViewController {
     
@@ -77,10 +79,12 @@ extension PopularCitiesViewController: UITableViewDelegate, UITableViewDataSourc
         if !list[indexPath.row].ad {
             let sb = UIStoryboard.init(name: TouristViewController.storyboardName, bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: TouristViewController.storyboardID) as! TouristViewController
+            vc.data = list[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         } else {
             let sb = UIStoryboard.init(name: AdvertisementViewController.storyBoardName, bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: AdvertisementViewController.storyBoardID) as! AdvertisementViewController
+            vc.data = list[indexPath.row]
             let nvc = UINavigationController(rootViewController: vc)
             nvc.modalPresentationStyle = .fullScreen
             present(nvc, animated: true)

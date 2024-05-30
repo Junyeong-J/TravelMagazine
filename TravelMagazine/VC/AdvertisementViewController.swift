@@ -12,12 +12,18 @@ class AdvertisementViewController: UIViewController {
     static let storyBoardName = "Advertisement"
     static let storyBoardID = "AdvertisementViewController"
     
+    var data: Travel?
+    
+    @IBOutlet var adTitleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationTitle("광고 화면")
         backButtonSetting()
-    } 
+        configureUI()
+        setData()
+    }
     
 }
 
@@ -30,6 +36,19 @@ extension AdvertisementViewController {
         left.tintColor = .black
         self.navigationItem.leftBarButtonItem = left
         
+    }
+    
+    func configureUI() {
+        
+        adTitleLabel.setPrimaryLabel(textColor: .black, font: .boldSystemFont(ofSize: 17), textAlignment: .center, numberOfLines: 0)
+        
+    }
+    
+    func setData() {
+        
+        guard let data = data else { return }
+        
+        adTitleLabel.text = data.title
     }
     
     @objc func backButtonClicked() {

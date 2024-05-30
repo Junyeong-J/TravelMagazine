@@ -25,6 +25,14 @@ struct Travel {
         }
     }
     
+    var gradeAndSavedDescription: String {
+        if let save, let grade {
+            return "평점: \(grade) | 저장: \(save.formatted())"
+        }else {
+            return "평점: 0 | 저장: 0"
+        }
+    }
+    
     var starScore: Double {
         
         if let grade {
