@@ -49,8 +49,8 @@ extension RestaurantsViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        let xib = UINib(nibName: RestaurantsTableViewCell.identfier, bundle: nil)
-        tableView.register(xib, forCellReuseIdentifier: RestaurantsTableViewCell.identfier)
+        let xib = UINib(nibName: RestaurantsTableViewCell.identifier, bundle: nil)
+        tableView.register(xib, forCellReuseIdentifier: RestaurantsTableViewCell.identifier)
         tableView.rowHeight = 150
         configureUI()
         
@@ -119,7 +119,7 @@ extension RestaurantsViewController {
     
     @objc func mapButtonClicked() {
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: MapViewController.identifier) as! MapViewController
         vc.data = restaurantList
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -157,7 +157,7 @@ extension RestaurantsViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantsTableViewCell.identfier, for: indexPath) as! RestaurantsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantsTableViewCell.identifier, for: indexPath) as! RestaurantsTableViewCell
         cell.configureCell(data: newRestaurantList[indexPath.row], indexPath: indexPath)
         cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
         

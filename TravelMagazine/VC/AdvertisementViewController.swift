@@ -10,7 +10,6 @@ import UIKit
 class AdvertisementViewController: UIViewController {
 
     static let storyBoardName = "Advertisement"
-    static let storyBoardID = "AdvertisementViewController"
     
     var data: Travel?
     

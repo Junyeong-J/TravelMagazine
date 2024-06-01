@@ -78,12 +78,12 @@ extension PopularCitiesViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !list[indexPath.row].ad {
             let sb = UIStoryboard.init(name: TouristViewController.storyboardName, bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: TouristViewController.storyboardID) as! TouristViewController
+            let vc = sb.instantiateViewController(withIdentifier: TouristViewController.identifier) as! TouristViewController
             vc.data = list[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         } else {
             let sb = UIStoryboard.init(name: AdvertisementViewController.storyBoardName, bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: AdvertisementViewController.storyBoardID) as! AdvertisementViewController
+            let vc = sb.instantiateViewController(withIdentifier: AdvertisementViewController.identifier) as! AdvertisementViewController
             vc.data = list[indexPath.row]
             let nvc = UINavigationController(rootViewController: vc)
             nvc.modalPresentationStyle = .fullScreen

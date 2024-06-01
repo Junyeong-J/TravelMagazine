@@ -42,9 +42,9 @@ extension CityViewController{
         
         let xib = UINib(nibName: CityTableViewCell.identifier, bundle: nil)
         cityTableView.register(xib, forCellReuseIdentifier: CityTableViewCell.identifier)
-        
         cityTableView.rowHeight = 150
         newList = cityList
+        
     }
     
     func setupAddTarget() {

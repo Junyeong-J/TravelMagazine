@@ -11,8 +11,6 @@ import Cosmos
 
 class CitiesTableViewCell: UITableViewCell {
     
-    static let identifier = "CitiesTableViewCell"
-    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subTitleLabel: UILabel!
     @IBOutlet var cityImageView: UIImageView!

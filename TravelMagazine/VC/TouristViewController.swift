@@ -11,7 +11,6 @@ import Kingfisher
 class TouristViewController: UIViewController {
 
     static let storyboardName = "TouristSpot"
-    static let storyboardID = "TouristViewController"
     
     var data: Travel?
     

@@ -8,8 +8,6 @@
 import UIKit
 
 class RestaurantsTableViewCell: UITableViewCell {
-
-    static let identfier = "RestaurantsTableViewCell"
     
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var title: UILabel!
