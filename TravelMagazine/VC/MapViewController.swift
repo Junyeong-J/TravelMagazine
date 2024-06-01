@@ -18,9 +18,7 @@ class MapViewController: UIViewController {
         
         navigationUI()
         mapSetting()
-        
     }
-    
     
 }
 
@@ -42,36 +40,30 @@ extension MapViewController {
         let center = CLLocationCoordinate2D(latitude: 37.518594, longitude: 126.894798)
         mapView.region = MKCoordinateRegion(center: center, latitudinalMeters: 2000, longitudinalMeters: 2000)
         
-        
         for item in data{
             let annotation = MKPointAnnotation()
             annotation.coordinate = .init(latitude: item.latitude, longitude: item.longitude)
             annotation.title = item.name
             mapView.addAnnotation(annotation)
         }
-        
-        
-        
-        
+
     }
     
     @objc func filterButtonClicked() {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let koreanFood = UIAlertAction(title: "한식", style: .default) { _ in self.categoryFood(title: "한식")
-        }
-        let chineseFood = UIAlertAction(title: "중식", style: .default){ _ in self.categoryFood(title: "중식")
-        }
-        let allFood = UIAlertAction(title: "전체보기", style: .default){ _ in self.categoryFood(title: nil)
-        }
-        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
-        alert.addAction(koreanFood)
-        alert.addAction(chineseFood)
-        alert.addAction(allFood)
-        alert.addAction(cancel)
+        alert.addAction(alertUI("한식"))
+        alert.addAction(alertUI("중식"))
+        alert.addAction(alertUI("전체보기", all: true))
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         
         present(alert, animated: true)
+    }
+    
+    func alertUI(_ title: String, all: Bool = false) -> UIAlertAction {
+        return UIAlertAction(title: title, style: .default) { _ in self.categoryFood(title: all ? nil : title)
+        }
     }
     
     func categoryFood(title: String?) {
