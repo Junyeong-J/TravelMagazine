@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class TouristViewController: UIViewController {
-
+    
     static let storyboardName = "TouristSpot"
     
     var data: Travel?
@@ -29,10 +29,11 @@ class TouristViewController: UIViewController {
         
         backButtonSetting()
         configureUI()
+        setupAddTarget()
         setDataUI()
         
     }
- 
+    
     
 }
 
@@ -57,6 +58,12 @@ extension TouristViewController {
         
     }
     
+    func setupAddTarget() {
+        
+        saveButton.addTarget(self, action: #selector(saveButtonClicked), for: .touchUpInside)
+        
+    }
+    
     func setDataUI(){
         
         guard let data = data else { return }
@@ -72,7 +79,7 @@ extension TouristViewController {
         gradeAndSaveLabel.text = data.gradeAndSavedDescription
         explainLabel.text = data.description
         
-        if let like = data.like{
+        if let like = data.like {
             let buttonImage = like ? "heart.fill" : "heart"
             let image = UIImage(systemName: buttonImage)
             saveButton.setImage(image, for: .normal)
@@ -87,5 +94,15 @@ extension TouristViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc func saveButtonClicked(sender: UIButton) {
+        
+        data?.like?.toggle()
+        
+        if let like = data?.like {
+            let buttonImage = like ? "heart.fill" : "heart"
+            let image = UIImage(systemName: buttonImage)
+            saveButton.setImage(image, for: .normal)
+        }
+    }
     
 }
