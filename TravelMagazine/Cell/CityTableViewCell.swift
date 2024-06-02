@@ -22,21 +22,6 @@ class CityTableViewCell: UITableViewCell {
         
         configureUI()
         
-//        contentView.layer.shadowColor = UIColor.black.cgColor
-//        contentView.layer.masksToBounds = false
-//        contentView.layer.shadowOffset = CGSize(width: 0, height: 4)
-//        contentView.layer.shadowRadius = 5
-//        contentView.layer.shadowOpacity = 0.3
-        
-        contentView.clipsToBounds = true
-        contentView.layer.cornerRadius = 20
-        contentView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMaxYCorner)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 20, bottom: 10, right: 20))
     }
     
     func configureUI() {
@@ -48,8 +33,11 @@ class CityTableViewCell: UITableViewCell {
         cityExplainView.setViewUI(backgroundColor: .black.withAlphaComponent(0.5), cornerRadius: 0)
         
         cityImageView.imageViewUI(contentMode: .scaleAspectFill, cornerRadius: 0)
+        cityImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
+        cityImageView.layer.cornerRadius = 20
         
-        
+        cityExplainView.layer.maskedCorners = [.layerMaxXMaxYCorner]
+        cityExplainView.layer.cornerRadius = 20
     }
     
     func configureCell(data: City){

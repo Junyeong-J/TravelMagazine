@@ -8,9 +8,14 @@
 import UIKit
 
 class CityViewController: UIViewController {
-
+    
     let cityList = CityInfo.city
-    var newList: [City] = []
+    var newList = CityInfo.city{
+        didSet{
+            cityTableView.reloadData()
+        }
+    }
+    var newCity: [City] = []
     
     @IBOutlet var cityTableView: UITableView!
     @IBOutlet var citySegmented: UISegmentedControl!
@@ -43,6 +48,7 @@ extension CityViewController{
         let xib = UINib(nibName: CityTableViewCell.identifier, bundle: nil)
         cityTableView.register(xib, forCellReuseIdentifier: CityTableViewCell.identifier)
         cityTableView.rowHeight = 150
+        newCity = cityList
         newList = cityList
         
     }
@@ -54,12 +60,13 @@ extension CityViewController{
     }
     
     @objc func didChangeValue(segment: UISegmentedControl){
-        
-        var newCity: [City] = []
-        
+
         if segment.selectedSegmentIndex == 0 {
+            newCity.removeAll()
+            newCity = cityList
             newList = cityList
         } else if segment.selectedSegmentIndex == 1 {
+            newCity.removeAll()
             for item in cityList{
                 if item.domestic_travel {
                     newCity.append(item)
@@ -67,6 +74,7 @@ extension CityViewController{
             }
             newList = newCity
         } else {
+            newCity.removeAll()
             for item in cityList{
                 if !item.domestic_travel {
                     newCity.append(item)
@@ -74,9 +82,6 @@ extension CityViewController{
             }
             newList = newCity
         }
-        
-        
-        cityTableView.reloadData()
     }
 }
 
@@ -94,7 +99,6 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
 }
 
 extension CityViewController: UISearchBarDelegate {
@@ -103,7 +107,7 @@ extension CityViewController: UISearchBarDelegate {
         
         var searchList: [City] = []
         
-        for item in newList {
+        for item in newCity {
             
             if item.city_name.contains(searchBar.text!) || item.city_english_name.contains(searchBar.text!) || item.city_explain.contains(searchBar.text!) {
                 
@@ -114,19 +118,8 @@ extension CityViewController: UISearchBarDelegate {
         }
         
         newList = searchList
-        
-        cityTableView.reloadData()
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
-        if searchText.isEmpty {
-            newList = cityList
-            cityTableView.reloadData()
-        } else {
-            newList = cityList
-        }
-        
-    }
+    
     
 }
