@@ -36,10 +36,12 @@ struct Chat {
     let date: String
     let message: String
     
-    init(user: User, date: String, message: String) {
-        self.user = user
-        self.date = Chat.changeData(date: date)
-        self.message = message
+    func newdateHour() -> String {
+        return Chat.changeDataHour(date: self.date)
+    }
+    
+    func newdate() -> String {
+        return Chat.changeData(date: self.date)
     }
     
     static func changeData(date: String) -> String {
@@ -56,6 +58,22 @@ struct Chat {
             return date
         }
     }
+    
+    static func changeDataHour(date: String) -> String {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "hh:mm a"
+        
+        if let date = inputFormatter.date(from: date) {
+            outputFormatter.locale = Locale(identifier: "ko_KR")
+            return outputFormatter.string(from: date)
+        } else {
+            return date
+        }
+    }
+    
     
 }
 

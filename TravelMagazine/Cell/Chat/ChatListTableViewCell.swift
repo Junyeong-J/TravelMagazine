@@ -33,6 +33,6 @@ class ChatListTableViewCell: UITableViewCell {
         profileImage.image = UIImage(named: data.chatroomImage[0])
         nicknameLabel.text = data.chatroomName
         contentsLabel.text = data.chatList.last?.message
-        dateLabel.text = data.chatList.last?.date
+        dateLabel.text = data.chatList.last?.newdate()
     }
 }

@@ -65,6 +65,11 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: ChattingViewController.identifier) as! ChattingViewController
+        vc.data = chatList[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension ChatViewController: UISearchBarDelegate {

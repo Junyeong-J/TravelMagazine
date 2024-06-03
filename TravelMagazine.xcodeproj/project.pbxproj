@@ -45,6 +45,11 @@
 		720A24E02C0CD2AA00DB0BB7 /* ChatRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 720A24DF2C0CD2AA00DB0BB7 /* ChatRoom.storyboard */; };
 		720A24E32C0CD3B700DB0BB7 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A24E12C0CD3B700DB0BB7 /* ChatListTableViewCell.swift */; };
 		720A24E42C0CD3B700DB0BB7 /* ChatListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 720A24E22C0CD3B700DB0BB7 /* ChatListTableViewCell.xib */; };
+		720A25142C0DDCAE00DB0BB7 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A25122C0DDCAE00DB0BB7 /* MyChatTableViewCell.swift */; };
+		720A25152C0DDCAE00DB0BB7 /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 720A25132C0DDCAE00DB0BB7 /* MyChatTableViewCell.xib */; };
+		720A25182C0DDCD000DB0BB7 /* OppositeChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A25162C0DDCD000DB0BB7 /* OppositeChatTableViewCell.swift */; };
+		720A25192C0DDCD000DB0BB7 /* OppositeChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 720A25172C0DDCD000DB0BB7 /* OppositeChatTableViewCell.xib */; };
+		720A251B2C0DDE8100DB0BB7 /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A251A2C0DDE8100DB0BB7 /* ChattingViewController.swift */; };
 		724A26882C03047A00A79F1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A26872C03047A00A79F1B /* AppDelegate.swift */; };
 		724A268A2C03047A00A79F1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A26892C03047A00A79F1B /* SceneDelegate.swift */; };
 		724A268F2C03047A00A79F1B /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 724A268E2C03047A00A79F1B /* Base */; };
@@ -93,6 +98,11 @@
 		720A24DF2C0CD2AA00DB0BB7 /* ChatRoom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatRoom.storyboard; sourceTree = "<group>"; };
 		720A24E12C0CD3B700DB0BB7 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		720A24E22C0CD3B700DB0BB7 /* ChatListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatListTableViewCell.xib; sourceTree = "<group>"; };
+		720A25122C0DDCAE00DB0BB7 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
+		720A25132C0DDCAE00DB0BB7 /* MyChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChatTableViewCell.xib; sourceTree = "<group>"; };
+		720A25162C0DDCD000DB0BB7 /* OppositeChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OppositeChatTableViewCell.swift; sourceTree = "<group>"; };
+		720A25172C0DDCD000DB0BB7 /* OppositeChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OppositeChatTableViewCell.xib; sourceTree = "<group>"; };
+		720A251A2C0DDE8100DB0BB7 /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
 		724A26842C03047A00A79F1B /* TravelMagazine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMagazine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		724A26872C03047A00A79F1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		724A26892C03047A00A79F1B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,8 +152,7 @@
 				720A24B12C071E5C00DB0BB7 /* CityTableViewCell.swift */,
 				720A24C12C08727D00DB0BB7 /* RestaurantsTableViewCell.xib */,
 				720A24C02C08727D00DB0BB7 /* RestaurantsTableViewCell.swift */,
-				720A24E22C0CD3B700DB0BB7 /* ChatListTableViewCell.xib */,
-				720A24E12C0CD3B700DB0BB7 /* ChatListTableViewCell.swift */,
+				720A25112C0DDBDC00DB0BB7 /* Chat */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -172,6 +181,7 @@
 				720A24C42C0874A300DB0BB7 /* RestaurantsViewController.swift */,
 				720A24CA2C08A92400DB0BB7 /* MapViewController.swift */,
 				720A24DD2C0CD20300DB0BB7 /* ChatViewController.swift */,
+				720A251A2C0DDE8100DB0BB7 /* ChattingViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -182,6 +192,19 @@
 				720A24D52C0AEF4A00DB0BB7 /* ReuseIdentifierProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		720A25112C0DDBDC00DB0BB7 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				720A24E22C0CD3B700DB0BB7 /* ChatListTableViewCell.xib */,
+				720A24E12C0CD3B700DB0BB7 /* ChatListTableViewCell.swift */,
+				720A25132C0DDCAE00DB0BB7 /* MyChatTableViewCell.xib */,
+				720A25122C0DDCAE00DB0BB7 /* MyChatTableViewCell.swift */,
+				720A25172C0DDCD000DB0BB7 /* OppositeChatTableViewCell.xib */,
+				720A25162C0DDCD000DB0BB7 /* OppositeChatTableViewCell.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		724A267B2C03047A00A79F1B = {
@@ -300,12 +323,14 @@
 				724A26942C03047B00A79F1B /* Base in Resources */,
 				720A24A52C0703F400DB0BB7 /* Advertisement.storyboard in Resources */,
 				720A24C32C08727D00DB0BB7 /* RestaurantsTableViewCell.xib in Resources */,
+				720A25152C0DDCAE00DB0BB7 /* MyChatTableViewCell.xib in Resources */,
 				720A24E42C0CD3B700DB0BB7 /* ChatListTableViewCell.xib in Resources */,
 				720A24C72C0874F500DB0BB7 /* Restaurant.storyboard in Resources */,
 				720A24972C062A3900DB0BB7 /* TravelsTableViewCell.xib in Resources */,
 				720A24E02C0CD2AA00DB0BB7 /* ChatRoom.storyboard in Resources */,
 				724A268F2C03047A00A79F1B /* Base in Resources */,
 				720A24B42C071E5C00DB0BB7 /* CityTableViewCell.xib in Resources */,
+				720A25192C0DDCD000DB0BB7 /* OppositeChatTableViewCell.xib in Resources */,
 				720A243B2C04A5FD00DB0BB7 /* PopularCities.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +345,7 @@
 				720A249B2C06308300DB0BB7 /* UIViewController+Extension.swift in Sources */,
 				720A24A32C07006300DB0BB7 /* TouristViewController.swift in Sources */,
 				720A24942C0629FF00DB0BB7 /* TravelViewController.swift in Sources */,
+				720A25142C0DDCAE00DB0BB7 /* MyChatTableViewCell.swift in Sources */,
 				724A269C2C03060700A79F1B /* MagazineInfo.swift in Sources */,
 				720A24AF2C071C2500DB0BB7 /* CityViewController.swift in Sources */,
 				720A24462C04BFBE00DB0BB7 /* ADTableViewCell.swift in Sources */,
@@ -328,6 +354,8 @@
 				720A243D2C04A74500DB0BB7 /* PopularCitiesViewController.swift in Sources */,
 				720A24E32C0CD3B700DB0BB7 /* ChatListTableViewCell.swift in Sources */,
 				720A24982C062A3900DB0BB7 /* TravelsTableViewCell.swift in Sources */,
+				720A251B2C0DDE8100DB0BB7 /* ChattingViewController.swift in Sources */,
+				720A25182C0DDCD000DB0BB7 /* OppositeChatTableViewCell.swift in Sources */,
 				720A24AB2C07129100DB0BB7 /* UIImageView+Extension.swift in Sources */,
 				720A24B32C071E5C00DB0BB7 /* CityTableViewCell.swift in Sources */,
 				720A24402C04B63800DB0BB7 /* CitiesTableViewCell.swift in Sources */,
