@@ -61,13 +61,13 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChatListTableViewCell.identifier, for: indexPath) as! ChatListTableViewCell
-        cell.configureCell(data: chatList[indexPath.row])
+        cell.configureCell(data: newList[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: ChattingViewController.identifier) as! ChattingViewController
-        vc.data = chatList[indexPath.row]
+        vc.data = newList[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -79,6 +79,7 @@ extension ChatViewController: UISearchBarDelegate {
         
         for item in chatList{
             if item.chatroomName.contains(searchBar.text!) {
+                print(item)
                 searchList.append(item)
             }
         }
@@ -86,9 +87,11 @@ extension ChatViewController: UISearchBarDelegate {
         chatListTableView.reloadData()
     }
     
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        newList = chatList
-        chatListTableView.reloadData()
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            newList = chatList
+            chatListTableView.reloadData()
+        }
     }
     
 }
