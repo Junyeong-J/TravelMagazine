@@ -12,8 +12,8 @@ class MyChatTableViewCell: UITableViewCell {
     @IBOutlet var contentUIView: UIView!
     @IBOutlet var contentLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
-    
-    
+    @IBOutlet var dateChangeView: UIView!
+    @IBOutlet var changeDate: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,11 +31,14 @@ class MyChatTableViewCell: UITableViewCell {
         
         dateLabel.setPrimaryLabel(textColor: .lightGray, font: .systemFont(ofSize: 12), textAlignment: .right, numberOfLines: 1)
         
+        changeDate.setPrimaryLabel(textColor: .darkGray, font: .systemFont(ofSize: 12), textAlignment: .center, numberOfLines: 1)
     }
     
-    func configureData(_ data: Chat?){
+    func configureData(_ data: Chat?, change: Bool, changeDates: String){
         contentLabel.text = data?.message
         dateLabel.text = data?.newdateHour()
+        dateChangeView.isHidden = change
+        changeDate.text = changeDates
     }
     
 }

@@ -17,6 +17,7 @@ class ChattingViewController: UIViewController {
     var data: ChatRoom?
     var sections:[Int] = []
     let placeholder = "메시지를 입력하세요"
+    var lastDate: String = "00.00.00"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,6 @@ class ChattingViewController: UIViewController {
         configureTableView()
         
         configureUI()
-        dateList()
     }
     
 }
@@ -45,22 +45,7 @@ extension ChattingViewController{
         chatTableView.separatorStyle = .none
         chatTableView.rowHeight = UITableView.automaticDimension
         chatTableView.estimatedRowHeight = 130
-    }
-    
-    func dateList() {
-        guard let chatList = data?.chatList else { return }
-        
-        var lastDate: String?
-        
-        for chat in chatList {
-            if chat.date != lastDate {
-                sections.append(1)
-                lastDate = chat.date
-            }
-            sections.append(0)
-        }
-        
-        print(sections)
+        chatTableView.scrollToRow(at: IndexPath(row: (self.data?.chatList.count)! - 1, section: 0), at: .bottom, animated: false)
     }
     
     func configureUI(){
@@ -83,26 +68,41 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        if sections[indexPath.row] == 1 {
-        //            let dateCell = UITableViewCell()
-        //            dateCell.textLabel?.text = data?.chatList[indexPath.row].date
-        //            dateCell.textLabel?.textAlignment = .center
-        //            dateCell.selectionStyle = .none
-        //            return dateCell
-        //        }
         
-        if data?.chatList[indexPath.row].user == .user {
-            let cell = tableView.dequeueReusableCell(withIdentifier: MyChatTableViewCell.identifier, for: indexPath) as! MyChatTableViewCell
-            if let chat = data?.chatList[indexPath.item] {
-                cell.configureData(chat)
+        
+        if lastDate != data?.chatList[indexPath.item].newdate(){
+            self.lastDate = (data?.chatList[indexPath.item].newdate())!
+            if data?.chatList[indexPath.row].user == .user {
+                let cell = tableView.dequeueReusableCell(withIdentifier: MyChatTableViewCell.identifier, for: indexPath) as! MyChatTableViewCell
+                if let chat = data?.chatList[indexPath.item] {
+                    cell.configureData(chat, change: false, changeDates: self.lastDate)
+                }
+                return cell
+            } else {
+                self.lastDate = (data?.chatList[indexPath.item].newdate())!
+                let cell = tableView.dequeueReusableCell(withIdentifier: OppositeChatTableViewCell.identifier, for: indexPath) as! OppositeChatTableViewCell
+                if let chat = data?.chatList[indexPath.item] {
+                    cell.configureData(chat, change: false, changedates: self.lastDate)
+                }
+                return cell
             }
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: OppositeChatTableViewCell.identifier, for: indexPath) as! OppositeChatTableViewCell
-            if let chat = data?.chatList[indexPath.item] {
-                cell.configureData(chat)
+            
+        }else {
+            if data?.chatList[indexPath.row].user == .user {
+                self.lastDate = (data?.chatList[indexPath.item].newdate())!
+                let cell = tableView.dequeueReusableCell(withIdentifier: MyChatTableViewCell.identifier, for: indexPath) as! MyChatTableViewCell
+                if let chat = data?.chatList[indexPath.item] {
+                    cell.configureData(chat, change: true, changeDates: self.lastDate)
+                }
+                return cell
+            } else {
+                self.lastDate = (data?.chatList[indexPath.item].newdate())!
+                let cell = tableView.dequeueReusableCell(withIdentifier: OppositeChatTableViewCell.identifier, for: indexPath) as! OppositeChatTableViewCell
+                if let chat = data?.chatList[indexPath.item] {
+                    cell.configureData(chat, change: true, changedates: self.lastDate)
+                }
+                return cell
             }
-            return cell
         }
     }
     

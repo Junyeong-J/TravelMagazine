@@ -14,6 +14,8 @@ class OppositeChatTableViewCell: UITableViewCell {
     @IBOutlet var nicknameLabel: UILabel!
     @IBOutlet var contentLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var dateChangeView: UIView!
+    @IBOutlet var changeDateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,13 +37,18 @@ class OppositeChatTableViewCell: UITableViewCell {
         profileImageView.imageViewUI(contentMode: .scaleAspectFill, cornerRadius: 15)
         profileImageView.layer.borderWidth = 1
         profileImageView.layer.borderColor = UIColor.black.cgColor
+        
+        changeDateLabel.setPrimaryLabel(textColor: .darkGray, font: .systemFont(ofSize: 12), textAlignment: .center, numberOfLines: 1)
+        
     }
 
-    func configureData(_ data: Chat?) {
+    func configureData(_ data: Chat?, change: Bool, changedates: String) {
+        dateChangeView.isHidden = change
         profileImageView.image = UIImage(named: (data?.user.rawValue)!)
         nicknameLabel.text = data?.user.rawValue
         contentLabel.text = data?.message
         dateLabel.text = data?.newdateHour()
+        changeDateLabel.text = changedates
     }
     
 }

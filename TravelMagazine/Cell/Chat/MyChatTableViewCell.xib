@@ -11,15 +11,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyChatTableViewCell" rowHeight="274" id="KGk-i7-Jjw" customClass="MyChatTableViewCell" customModule="TravelMagazine" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="330" height="274"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyChatTableViewCell" rowHeight="131" id="KGk-i7-Jjw" customClass="MyChatTableViewCell" customModule="TravelMagazine" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="131"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="330" height="274"/>
+                <rect key="frame" x="0.0" y="0.0" width="330" height="131"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryo-YO-wMQ">
-                        <rect key="frame" x="210.66666666666666" y="25.333333333333329" width="59.999999999999972" height="20"/>
+                        <rect key="frame" x="210.66666666666666" y="45.333333333333336" width="59.999999999999972" height="20.000000000000007"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="pmi-zn-E5g"/>
                         </constraints>
@@ -28,7 +28,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yf3-91-Dns">
-                        <rect key="frame" x="273.66666666666669" y="14.999999999999998" width="51.333333333333314" height="30.333333333333329"/>
+                        <rect key="frame" x="273.66666666666669" y="35" width="51.333333333333314" height="30.333333333333329"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jba-pY-FKM">
                                 <rect key="frame" x="5" y="5" width="41.333333333333336" height="20.333333333333332"/>
@@ -45,10 +45,30 @@
                             <constraint firstAttribute="trailing" secondItem="Jba-pY-FKM" secondAttribute="trailing" constant="5" id="qIv-oZ-mcJ"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QYt-O4-LJi">
+                        <rect key="frame" x="0.0" y="0.0" width="330" height="20"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4d-h3-ici">
+                                <rect key="frame" x="144" y="-0.66666666666666607" width="42" height="21.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="o4d-h3-ici" firstAttribute="centerX" secondItem="QYt-O4-LJi" secondAttribute="centerX" id="6aq-8X-O9s"/>
+                            <constraint firstAttribute="height" constant="20" id="DH7-q1-AoY"/>
+                            <constraint firstItem="o4d-h3-ici" firstAttribute="centerY" secondItem="QYt-O4-LJi" secondAttribute="centerY" id="g2a-pB-hJn"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="yf3-91-Dns" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Cip-Mz-zoB"/>
+                    <constraint firstItem="QYt-O4-LJi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0pV-kn-ote"/>
+                    <constraint firstAttribute="trailing" secondItem="QYt-O4-LJi" secondAttribute="trailing" id="4jz-mY-QkV"/>
+                    <constraint firstItem="yf3-91-Dns" firstAttribute="top" secondItem="QYt-O4-LJi" secondAttribute="bottom" constant="15" id="D2l-nK-P2i"/>
                     <constraint firstItem="yf3-91-Dns" firstAttribute="leading" secondItem="ryo-YO-wMQ" secondAttribute="trailing" constant="3" id="Er9-eo-YBe"/>
+                    <constraint firstItem="QYt-O4-LJi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Xcq-EO-Shj"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yf3-91-Dns" secondAttribute="bottom" constant="15" id="b5H-63-Q2w"/>
                     <constraint firstAttribute="trailing" secondItem="yf3-91-Dns" secondAttribute="trailing" constant="5" id="gbG-5g-4aX"/>
                     <constraint firstItem="ryo-YO-wMQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="hJn-yM-Tlm"/>
@@ -57,11 +77,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="changeDate" destination="o4d-h3-ici" id="xkv-dd-tbq"/>
                 <outlet property="contentLabel" destination="Jba-pY-FKM" id="qfd-Xm-SUM"/>
                 <outlet property="contentUIView" destination="yf3-91-Dns" id="lGq-hw-JiA"/>
+                <outlet property="dateChangeView" destination="QYt-O4-LJi" id="tAR-mZ-HBp"/>
                 <outlet property="dateLabel" destination="ryo-YO-wMQ" id="hfQ-Vg-6Y2"/>
             </connections>
-            <point key="canvasLocation" x="135.87786259541986" y="34.507042253521128"/>
+            <point key="canvasLocation" x="141.98473282442748" y="0.35211267605633806"/>
         </tableViewCell>
     </objects>
     <resources>
