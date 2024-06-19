@@ -50,6 +50,7 @@
 		720A25182C0DDCD000DB0BB7 /* OppositeChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A25162C0DDCD000DB0BB7 /* OppositeChatTableViewCell.swift */; };
 		720A25192C0DDCD000DB0BB7 /* OppositeChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 720A25172C0DDCD000DB0BB7 /* OppositeChatTableViewCell.xib */; };
 		720A251B2C0DDE8100DB0BB7 /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720A251A2C0DDE8100DB0BB7 /* ChattingViewController.swift */; };
+		72154C582C230EB000EEF679 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 72154C572C230EB000EEF679 /* SnapKit */; };
 		724A26882C03047A00A79F1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A26872C03047A00A79F1B /* AppDelegate.swift */; };
 		724A268A2C03047A00A79F1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A26892C03047A00A79F1B /* SceneDelegate.swift */; };
 		724A268F2C03047A00A79F1B /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 724A268E2C03047A00A79F1B /* Base */; };
@@ -119,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72154C582C230EB000EEF679 /* SnapKit in Frameworks */,
 				720A24902C05D41E00DB0BB7 /* Cosmos in Frameworks */,
 				724A26A32C030FF300A79F1B /* Kingfisher in Frameworks */,
 			);
@@ -267,6 +269,7 @@
 			packageProductDependencies = (
 				724A26A22C030FF300A79F1B /* Kingfisher */,
 				720A248F2C05D41E00DB0BB7 /* Cosmos */,
+				72154C572C230EB000EEF679 /* SnapKit */,
 			);
 			productName = TravelMagazine;
 			productReference = 724A26842C03047A00A79F1B /* TravelMagazine.app */;
@@ -299,6 +302,7 @@
 			packageReferences = (
 				724A26A12C030FF300A79F1B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				720A248E2C05D41E00DB0BB7 /* XCRemoteSwiftPackageReference "Cosmos" */,
+				72154C562C230EB000EEF679 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 724A26852C03047A00A79F1B /* Products */;
 			projectDirPath = "";
@@ -615,6 +619,14 @@
 				minimumVersion = 25.0.1;
 			};
 		};
+		72154C562C230EB000EEF679 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 		724A26A12C030FF300A79F1B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -630,6 +642,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 720A248E2C05D41E00DB0BB7 /* XCRemoteSwiftPackageReference "Cosmos" */;
 			productName = Cosmos;
+		};
+		72154C572C230EB000EEF679 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72154C562C230EB000EEF679 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 		724A26A22C030FF300A79F1B /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
